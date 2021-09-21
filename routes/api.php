@@ -22,3 +22,16 @@ Route::group([
         ->name("update");
 
 });
+
+Route::group([
+    "prefix" => "transfers", "as" => "transfers."
+], function ()
+{
+
+    Route::get("{transfer}", "TransfersController@show")
+        ->name("show");
+
+    Route::post("create", "TransfersController@store")
+        ->name("store");
+
+});

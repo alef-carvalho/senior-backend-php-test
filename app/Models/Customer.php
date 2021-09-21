@@ -10,6 +10,7 @@ use App\Enums\CustomerType;
  * @property string $cpf_cnpj
  * @property string $email
  * @property string $full_name
+ * @property float $balance
  * @property CustomerType $type
  */
 class Customer extends Model
@@ -21,6 +22,7 @@ class Customer extends Model
      * @var string[]
      */
     protected $fillable = [
+        "balance",
         "full_name",
         "email",
         "cpf_cnpj",
@@ -33,16 +35,25 @@ class Customer extends Model
      * @var array
      */
     protected $casts = [
-        "type" => CustomerType::class
+        "balance" => "decimal",
+        "type"    => CustomerType::class
     ];
 
     //checkers
 
+    /**
+     * Returns true when the customer type equals "PF"
+     * @return bool
+     */
     public function isPF(): bool
     {
         return $this->type->is(CustomerType::PF);
     }
 
+    /**
+     * Returns true when the customer type equals "PJ"
+     * @return bool
+     */
     public function isPJ(): bool
     {
         return $this->type->is(CustomerType::PJ);
@@ -58,6 +69,17 @@ class Customer extends Model
     public function getRouteKeyName(): string
     {
         return 'cpf_cnpj';
+    }
+
+    //mutators
+
+    /**
+     * Keep only numbers when saving the customer document.
+     * @param $value
+     */
+    public function setCpfCnpjAttribute($value): void
+    {
+        $this->attributes['cpf_cnpj'] = preg_replace("/[^0-9]/", "", $value);
     }
 
 }

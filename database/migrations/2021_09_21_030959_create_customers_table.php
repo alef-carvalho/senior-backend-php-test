@@ -21,6 +21,7 @@ class CreateCustomersTable extends Migration
             $table->string('full_name', 50);
             $table->string('email', 50)->unique();
             $table->string('cpf_cnpj', 15)->unique();
+            $table->decimal('balance', 15, 2)->default(0.0);
             $table->enum('type', CustomerType::asArray());
             $table->timestamps();
             $table->softDeletes();
