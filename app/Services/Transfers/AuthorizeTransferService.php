@@ -8,7 +8,7 @@ use App\Enums\TransferAuthorization;
 use Illuminate\Support\Facades\Http;
 use App\Http\Dto\Transfers\TransferDto;
 
-class TransferAuthorizerService extends Service
+class AuthorizeTransferService extends Service
 {
 
     private string $endpoint;

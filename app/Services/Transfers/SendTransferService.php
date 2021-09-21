@@ -19,8 +19,7 @@ class SendTransferService extends Service
     private TransferDto $dto;
     private TransferRepository $transferRepository;
     private CustomerRepository $customerRepository;
-    private TransferAuthorizerService $authorizerService;
-    private TransferNotifierService $notifierService;
+    private AuthorizeTransferService $authorizerService;
 
     /**
      * Constructor
@@ -30,8 +29,7 @@ class SendTransferService extends Service
         $this->dto = $dto;
         $this->customerRepository = new CustomerRepository();
         $this->transferRepository = new TransferRepository();
-        $this->authorizerService  = new TransferAuthorizerService();
-        $this->notifierService = new TransferNotifierService();
+        $this->authorizerService  = new AuthorizeTransferService();
     }
 
     /**
@@ -111,12 +109,19 @@ class SendTransferService extends Service
      */
     private function save(): Transfer
     {
-        return $this->transferRepository->create([
+
+        $transfer = $this->transferRepository->create([
             "payer_id"    => $this->payer->id,
             "payee_id"    => $this->payee->id,
             "amount"      => $this->dto->amount,
             "description" => $this->dto->description
         ]);
+
+        $transfer->setAsAuthorized();
+        $transfer->save();
+
+        return $transfer;
+
     }
 
     /**

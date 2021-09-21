@@ -7,7 +7,7 @@ use App\Services\Service;
 use App\Enums\TransferNotification;
 use Illuminate\Support\Facades\Http;
 
-class TransferNotifierService extends Service
+class NotifyTransferService extends Service
 {
 
     private string $endpoint;

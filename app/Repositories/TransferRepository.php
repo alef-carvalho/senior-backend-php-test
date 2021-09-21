@@ -34,6 +34,11 @@ class TransferRepository extends Repository
         return $this->entity::query()->findOrFail($id);
     }
 
+    public function findByStatus(string $status)
+    {
+        return $this->entity::query()->where("status", $status)->orderBy("created_at")->get();
+    }
+
     public function update(int $id, array $attributes): bool
     {
         return $this->entity::query()->findOrFail($id)->update($attributes);

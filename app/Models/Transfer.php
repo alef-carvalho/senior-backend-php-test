@@ -121,4 +121,33 @@ class Transfer extends Model
         return $this->status->is(TransferStatus::Transferred);
     }
 
+    //setters
+
+    /**
+     * Set the transfer as authorized.
+     * @return void
+     */
+    public function setAsAuthorized(): void
+    {
+        $this->status = TransferStatus::Authorized;
+    }
+
+    /**
+     * Set the transfer as finished.
+     * @return void
+     */
+    public function setAsTransferred(): void
+    {
+        $this->status = TransferStatus::Transferred;
+    }
+
+    /**
+     * Set the transfer as reverted.
+     * @return void
+     */
+    public function setAsReverted(): void
+    {
+        $this->status = TransferStatus::Reverted;
+    }
+
 }
