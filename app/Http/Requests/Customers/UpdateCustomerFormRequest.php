@@ -3,7 +3,7 @@
 namespace App\Http\Requests\Customers;
 
 use App\Models\Customer;
-use App\Rules\CpfOrCnpj;
+use App\Rules\CpfOrCnpjFormat;
 use App\Enums\CustomerType;
 use App\Http\Requests\FormRequest;
 use BenSampo\Enum\Rules\EnumValue;
@@ -30,7 +30,7 @@ class UpdateCustomerFormRequest extends FormRequest
             ->whereNotIn("email", [$this->customer->email]);
 
         return [
-            "cpf_cnpj"  => ["required", new CpfOrCnpj, "max:15", $uniqueCpfCnpj],
+            "cpf_cnpj"  => ["required", new CpfOrCnpjFormat, "max:15", $uniqueCpfCnpj],
             "email"     => ["required", "string", "email", "max:50", $uniqueEmail],
             "full_name" => ["required", "string", "max:50"],
             "type"      => ["required", new EnumValue(CustomerType::class)]

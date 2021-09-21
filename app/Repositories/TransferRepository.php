@@ -2,21 +2,21 @@
 
 namespace App\Repositories;
 
-use App\Models\Customer;
+use App\Models\Transfer;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
 
-class CustomerRepository extends Repository
+class TransferRepository extends Repository
 {
 
-    private Customer $entity;
+    private Transfer $entity;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->entity = new Customer();
+        $this->entity = new Transfer();
     }
 
     public function all(): Collection
@@ -31,12 +31,7 @@ class CustomerRepository extends Repository
 
     public function find(int $id): ?Model
     {
-        return $this->entity::query()->find($id);
-    }
-
-    public function findByCpfOrCnpj(string $cpfCnpj)
-    {
-        return $this->entity::query()->where("cpf_cnpj", $cpfCnpj)->first();
+        return $this->entity::query()->findOrFail($id);
     }
 
     public function update(int $id, array $attributes): bool

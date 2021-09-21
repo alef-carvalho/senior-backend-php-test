@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
+ * @property float $amount
+ * @property string $description
  * @property Customer $payer
  * @property Customer $payee
  * @property TransferStatus $status
@@ -22,7 +24,8 @@ class Transfer extends Model
     protected $fillable = [
         "payer_id",
         "payee_id",
-        "amount"
+        "amount",
+        "description"
     ];
 
     /**
@@ -31,7 +34,17 @@ class Transfer extends Model
      * @var array
      */
     protected $casts = [
+        "amount" => "decimal:2",
         "status" => TransferStatus::class
+    ];
+
+    /**
+     * The relations auto-loaded.
+     *
+     * @var array
+     */
+    protected $with = [
+        "logs"
     ];
 
     /**

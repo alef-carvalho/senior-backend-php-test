@@ -4,7 +4,7 @@ namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
-class CpfOrCnpj implements Rule
+class CpfOrCnpjFormat implements Rule
 {
     /**
      * Valida o formato do cpf

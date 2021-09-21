@@ -6,7 +6,7 @@ use Exception;
 use App\Enums\TransferNotification;
 use Illuminate\Support\Facades\Http;
 
-class TransferNotificationService extends Service
+class TransferNotifierService extends Service
 {
 
     private string $endpoint;
@@ -29,7 +29,7 @@ class TransferNotificationService extends Service
 
         $response = Http::get($this->endpoint);
 
-        if($response->successful())
+        if(!$response->successful())
         {
             throw new Exception("The notification service is offline.");
         }

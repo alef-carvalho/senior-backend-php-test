@@ -35,7 +35,7 @@ class Customer extends Model
      * @var array
      */
     protected $casts = [
-        "balance" => "decimal",
+        "balance" => "decimal:2",
         "type"    => CustomerType::class
     ];
 
@@ -57,6 +57,17 @@ class Customer extends Model
     public function isPJ(): bool
     {
         return $this->type->is(CustomerType::PJ);
+    }
+
+    //setters
+
+    /**
+     * Set the customer balance.
+     * @param float $balance
+     */
+    public function setBalance(float $balance)
+    {
+        $this->balance = $balance;
     }
 
     //acessors

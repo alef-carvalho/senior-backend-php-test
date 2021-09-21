@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Rules;
 
-use App\Rules\CpfOrCnpj;
+use App\Rules\CpfOrCnpjFormat;
 use PHPUnit\Framework\TestCase;
 
 class CpfOrCnpjTest extends TestCase
@@ -17,7 +17,7 @@ class CpfOrCnpjTest extends TestCase
     {
 
         //arrange
-        $validator = new CpfOrCnpj();
+        $validator = new CpfOrCnpjFormat();
 
         //
         $validNumbers = $validator->passes('test', '85407807041');
@@ -41,7 +41,7 @@ class CpfOrCnpjTest extends TestCase
     {
 
         //arrange
-        $validator = new CpfOrCnpj();
+        $validator = new CpfOrCnpjFormat();
 
         //
         $validNumbers = $validator->passes('test', '30721323000135');

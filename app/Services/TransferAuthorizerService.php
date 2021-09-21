@@ -5,6 +5,7 @@ namespace App\Services;
 use Exception;
 use App\Enums\TransferAuthorization;
 use Illuminate\Support\Facades\Http;
+use App\Http\Dto\Transfers\TransferDto;
 
 class TransferAuthorizerService extends Service
 {
@@ -21,15 +22,16 @@ class TransferAuthorizerService extends Service
 
     /**
      * Execute the service.
+     * @param TransferDto $dto
      * @return bool
      * @throws Exception
      */
-    public function authorize(): bool
+    public function authorize(TransferDto $dto): bool
     {
 
-        $response = Http::get($this->endpoint);
+        $response = Http::post($this->endpoint, $dto->toArray());
 
-        if($response->successful())
+        if(!$response->successful())
         {
             throw new Exception("The authorization service is offline.");
         }

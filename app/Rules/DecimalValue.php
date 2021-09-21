@@ -4,16 +4,19 @@ namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
-class CNPJ implements Rule
+class DecimalValue implements Rule
 {
+
+    protected int $places;
+
     /**
      * Create a new rule instance.
      *
-     * @return void
+     * @param int $places
      */
-    public function __construct()
+    public function __construct(int $places = 2)
     {
-        //
+        $this->places = $places;
     }
 
     /**
@@ -23,9 +26,9 @@ class CNPJ implements Rule
      * @param  mixed  $value
      * @return bool
      */
-    public function passes($attribute, $value)
+    public function passes($attribute, $value): bool
     {
-        //
+        return preg_match( '/^[0-9]*\.?[0-9]{0,2}$/', $value);
     }
 
     /**
@@ -33,8 +36,9 @@ class CNPJ implements Rule
      *
      * @return string
      */
-    public function message()
+    public function message(): string
     {
-        return 'The validation error message.';
+        return 'The :attribute must be a valid decimal.';
     }
+
 }

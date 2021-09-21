@@ -19,7 +19,8 @@ class CreateTransfersTable extends Migration
             $table->id();
             $table->unsignedBigInteger("payer_id");
             $table->unsignedBigInteger("payee_id");
-            $table->decimal("amount", 15, 2);
+            $table->decimal("amount", 15, 2)->unsigned();
+            $table->string("description", 255)->nullable();
             $table->enum("status", TransferStatus::asArray())->default(TransferStatus::Pending);
             $table->timestamps();
             $table->softDeletes();
