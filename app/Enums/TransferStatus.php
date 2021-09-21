@@ -8,6 +8,9 @@ namespace App\Enums;
  */
 final class TransferStatus extends Enum
 {
-    const Pending  = "pending";
-    const Reverted = "reverted";
+    const Pending     = "pending";
+    const Authorized  = "authorized";
+    const Rejected    = "rejected";
+    const Reverted    = "reverted";
+    const Transferred = "transferred";
 }

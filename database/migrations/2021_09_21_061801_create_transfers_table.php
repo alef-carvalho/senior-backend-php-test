@@ -24,6 +24,18 @@ class CreateTransfersTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
+            $table->foreign("payer_id")
+                ->references("id")
+                ->on("customers")
+                ->onUpdate("cascade")
+                ->onDelete("cascade");
+
+            $table->foreign("payee_id")
+                ->references("id")
+                ->on("customers")
+                ->onUpdate("cascade")
+                ->onDelete("cascade");
+
         });
     }
 
