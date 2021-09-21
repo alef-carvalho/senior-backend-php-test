@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Transfers;
 
 use Exception;
+use App\Services\Service;
 use App\Enums\TransferAuthorization;
 use Illuminate\Support\Facades\Http;
 use App\Http\Dto\Transfers\TransferDto;

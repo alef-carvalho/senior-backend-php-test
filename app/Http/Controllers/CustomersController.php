@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Exception;
 use App\Models\Customer;
-use App\Services\CustomerService;
 use Illuminate\Http\JsonResponse;
+use App\Services\Customers\StoreCustomerService;
+use App\Services\Customers\UpdateCustomerService;
 use App\Http\Requests\Customers\UpdateCustomerFormRequest;
 use App\Http\Requests\Customers\StoreCustomerFormRequest;
 
@@ -26,10 +27,10 @@ class CustomersController extends Controller
      * Store a new customer in database.
      *
      * @param StoreCustomerFormRequest $request
-     * @param CustomerService $service
+     * @param StoreCustomerService $service
      * @return JsonResponse
      */
-    public function store(StoreCustomerFormRequest $request, CustomerService $service): JsonResponse
+    public function store(StoreCustomerFormRequest $request, StoreCustomerService $service): JsonResponse
     {
 
         try {
@@ -51,11 +52,11 @@ class CustomersController extends Controller
      * Update the specified resource in storage.
      *
      * @param Customer $customer
-     * @param CustomerService $service
+     * @param UpdateCustomerService $service
      * @param UpdateCustomerFormRequest $request
      * @return JsonResponse
      */
-    public function update(Customer $customer, CustomerService $service, UpdateCustomerFormRequest $request): JsonResponse
+    public function update(Customer $customer, UpdateCustomerService $service, UpdateCustomerFormRequest $request): JsonResponse
     {
 
         try {
@@ -77,11 +78,11 @@ class CustomersController extends Controller
      * Remove the customer from database.
      *
      * @param Customer $customer
-     * @param CustomerService $service
+     * @param StoreCustomerService $service
      * @return JsonResponse
      * @throws Exception
      */
-    public function destroy(Customer $customer, CustomerService $service): JsonResponse
+    public function destroy(Customer $customer, StoreCustomerService $service): JsonResponse
     {
         throw new Exception("Not implemented.");
     }

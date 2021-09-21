@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Dto\Transfers\TransferDto;
 use Exception;
 use App\Models\Transfer;
-use App\Services\SendTransferService;
 use Illuminate\Http\JsonResponse;
+use App\Http\Dto\Transfers\TransferDto;
+use App\Services\Transfers\SendTransferService;
 use App\Http\Requests\Transfers\StoreTransferFormRequest;
 
 class TransfersController extends Controller

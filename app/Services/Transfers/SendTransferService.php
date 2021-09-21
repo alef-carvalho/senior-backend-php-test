@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Transfers;
 
 use Exception;
 use App\Models\Customer;
 use App\Models\Transfer;
+use App\Services\Service;
 use App\Http\Dto\Transfers\TransferDto;
 use App\Repositories\CustomerRepository;
 use App\Repositories\TransferRepository;
