@@ -74,17 +74,4 @@ class CustomersController extends Controller
 
     }
 
-    /**
-     * Remove the customer from database.
-     *
-     * @param Customer $customer
-     * @param StoreCustomerService $service
-     * @return JsonResponse
-     * @throws Exception
-     */
-    public function destroy(Customer $customer, StoreCustomerService $service): JsonResponse
-    {
-        throw new Exception("Not implemented.");
-    }
-
 }
