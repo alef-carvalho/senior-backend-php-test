@@ -31,6 +31,7 @@ class CustomerSeeder extends Seeder
             "cpf_cnpj"  => "63.398.241/0001-50"
         ], [
             "full_name" => "Fake Company",
+            "balance"   => 1000,
             "type"      => CustomerType::PJ
         ]);
 
