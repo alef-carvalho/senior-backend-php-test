@@ -1,8 +1,8 @@
 ## Senior PHP Test
-This api was built using the Laravel 8.5 framework.
+This api was built using the Laravel 8.5 framework. The RESTful API runs on port 8000 and database server runs on port 3306.
 
 ## Running Project
-You can run the API container using the ``docker compose up -d `` command.
+You can run the API container using the ``docker compose up -d`` command.
 
 ## API Docs
 
