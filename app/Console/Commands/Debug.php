@@ -29,7 +29,6 @@ class Debug extends Command
      */
     public function handle()
     {
-        DispatchAuthorizedTransfers::dispatchNow();
         return 0;
     }
 

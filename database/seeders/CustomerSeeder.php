@@ -22,6 +22,7 @@ class CustomerSeeder extends Seeder
             "cpf_cnpj"  => "748.821.040-91"
         ], [
             "full_name" => "Fake Person",
+            "balance"   => 1000,
             "type"      => CustomerType::PF
         ]);
 
