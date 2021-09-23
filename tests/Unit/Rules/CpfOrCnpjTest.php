@@ -13,7 +13,7 @@ class CpfOrCnpjTest extends TestCase
      *
      * @return void
      */
-    public function test_cpf_formats()
+    public function test_must_pass_with_valid_cpf_format()
     {
 
         //arrange
@@ -37,7 +37,7 @@ class CpfOrCnpjTest extends TestCase
      *
      * @return void
      */
-    public function test_cnpj_formats()
+    public function test_must_pass_with_valid_cnpj_format()
     {
 
         //arrange

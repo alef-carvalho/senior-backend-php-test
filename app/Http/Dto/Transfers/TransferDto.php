@@ -9,15 +9,15 @@ final class TransferDto extends Dto
 
     /**
      * The transfer sender.
-     * @var string
+     * @var integer|string
      */
-    public string $payer_id;
+    public $payer_id;
 
     /**
      * The transfer receiver
-     * @var string
+     * @var integer|string
      */
-    public string $payee_id;
+    public $payee_id;
 
     /**
      * The transfer amount
