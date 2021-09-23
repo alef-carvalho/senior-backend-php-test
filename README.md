@@ -6,8 +6,8 @@ You can run the API container using the ``docker compose up -d `` command.
 
 ## API Docs
 
-The API endpoint parameters are documented with **[Postman](https://vehikl.com/)**.
+The API endpoint parameters are documented with **[Postman](https://documenter.getpostman.com/view/4574071/UUxwBorN)**.
 
 ## License
 
-This software is licensed under the [MIT license](https://documenter.getpostman.com/view/4574071/UUxwBorN).
+This software is licensed under the [MIT license](https://opensource.org/licenses/MIT.
