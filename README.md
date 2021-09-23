@@ -10,4 +10,4 @@ The API endpoint parameters are documented with **[Postman](https://documenter.g
 
 ## License
 
-This software is licensed under the [MIT license](https://opensource.org/licenses/MIT.
+This software is licensed under the [MIT license](https://opensource.org/licenses/MIT).
