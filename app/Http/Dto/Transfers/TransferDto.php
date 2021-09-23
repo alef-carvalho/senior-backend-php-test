@@ -21,7 +21,7 @@ final class TransferDto extends Dto
 
     /**
      * The transfer amount
-     * @var float|string
+     * @var float|integer|string
      */
     public $amount;
 
